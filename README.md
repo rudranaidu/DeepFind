@@ -1,11 +1,13 @@
 Index repo
-python -m src.cli ingest --repo-root /Users/rnagulap/otbi/otbi-lcm-jc --recreate
+python -m src.cli ingest --repo-root /path/to/repo --recreate
 
-Test search
-python -m src.cli search --query "Where is scheduler logic implemented?" --top-k 5
+Web UI
+uvicorn src.api:app --host 127.0.0.1 --port 8080
+http://127.0.0.1:8080/ui/
 
-Test ask
-python -m src.cli ask --question "Where is vector store initialized and used?" --top-k 6
+Ask
+python -m src.cli ask --question "Where is scheduler logic implemented?" --top-k 6
+python -m src.cli ask --question "Where is scheduler logic implemented?" --top-k 6 --explain
 
 
 Import Graph
